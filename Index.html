@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MaleficPsycho | Brand Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #ff0055;
+      --accent-dark: #cc0044;
+      --accent-light: #ff3366;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-hover: #1a1a1a;
+      --text: #ffffff;
+      --text-secondary: #aaaaaa;
+      --text-muted: #666666;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: rgba(0, 0, 0, 0.5);
+      --transition: 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      --radius: 12px;
+    }
+
+    /* Light Theme */
+    [data-theme="light"] {
+      --accent: #d9004c;
+      --accent-dark: #b3003d;
+      --accent-light: #ff1a5c;
+      --bg: #f8f9fa;
+      --bg-card: #ffffff;
+      --bg-hover: #f0f0f0;
+      --text: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #666666;
+      --border: rgba(0, 0, 0, 0.1);
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Cyber Theme - Green accent for tech vibe */
+    [data-theme="cyber"] {
+      --accent: #00ff88;
+      --accent-dark: #00cc66;
+      --accent-light: #33ff99;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-hover: #1a1a1a;
+      --text: #ffffff;
+      --text-secondary: #cccccc;
+      --text-muted: #888888;
+      --border: rgba(0, 255, 136, 0.2);
+      --shadow: rgba(0, 255, 136, 0.1);
+    }
+
+    /* Neon Theme - Purple/pink for energetic feel */
+    [data-theme="neon"] {
+      --accent: #ff00ff;
+      --accent-dark: #cc00cc;
+      --accent-light: #ff33ff;
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-hover: #1a1a1a;
+      --text: #ffffff;
+      --text-secondary: #cccccc;
+      --text-muted: #888888;
+      --border: rgba(255, 0, 255, 0.2);
+      --shadow: rgba(255, 0, 255, 0.1);
+    }
+
+    /* Matrix Theme - Classic green terminal style */
+    [data-theme="matrix"] {
+      --accent: #00ff00;
+      --accent-dark: #00cc00;
+      --accent-light: #33ff33;
+      --bg: #000000;
+      --bg-card: #0a0a0a;
+      --bg-hover: #111111;
+      --text: #00ff00;
+      --text-secondary: #00cc00;
+      --text-muted: #009900;
+      --border: rgba(0, 255, 0, 0.2);
+      --shadow: rgba(0, 255, 0, 0.1);
+    }
+
+    /* Sunset Theme - Orange/purple gradient */
+    [data-theme="sunset"] {
+      --accent: #ff6b35;
+      --accent-dark: #e55a2b;
+      --accent-light: #ff8c5a;
+      --bg: #1a1a2e;
+      --bg-card: #16213e;
+      --bg-hover: #0f3460;
+      --text: #ffffff;
+      --text-secondary: #e0e0e0;
+      --text-muted: #b0b0b0;
+      --border: rgba(255, 107, 53, 0.3);
+      --shadow: rgba(255, 107, 53, 0.2);
+    }
+
+    /* Ocean Theme - Blue/teal colors */
+    [data-theme="ocean"] {
+      --accent: #00b4d8;
+      --accent-dark: #0096c7;
+      --accent-light: #48cae4;
+      --bg: #001219;
+      --bg-card: #005f73;
+      --bg-hover: #0a9396;
+      --text: #ffffff;
+      --text-secondary: #e9f5db;
+      --text-muted: #94d2bd;
+      --border: rgba(0, 180, 216, 0.3);
+      --shadow: rgba(0, 180, 216, 0.2);
+    }
+
+    /* Forest Theme - Green/brown earth tones */
+    [data-theme="forest"] {
+      --accent: #38b000;
+      --accent-dark: #2d8800;
+      --accent-light: #56cf00;
+      --bg: #1a1f16;
+      --bg-card: #283618;
+      --bg-hover: #606c38;
+      --text: #fefae0;
+      --text-secondary: #e9edc9;
+      --text-muted: #ccd5ae;
+      --border: rgba(86, 207, 0, 0.3);
+      --shadow: rgba(86, 207, 0, 0.2);
+    }
+
+    /* Royal Theme - Purple/gold luxury */
+    [data-theme="royal"] {
+      --accent: #9d4edd;
+      --accent-dark: #7b2cbf;
+      --accent-light: #c77dff;
+      --bg: #10002b;
+      --bg-card: #240046;
+      --bg-hover: #3c096c;
+      --text: #ffffff;
+      --text-secondary: #e0aaff;
+      --text-muted: #c77dff;
+      --border: rgba(157, 78, 221, 0.3);
+      --shadow: rgba(157, 78, 221, 0.2);
+    }
+
+    /* Fire Theme - Red/orange intense */
+    [data-theme="fire"] {
+      --accent: #ff5400;
+      --accent-dark: #e04e00;
+      --accent-light: #ff6a00;
+      --bg: #1a0f0f;
+      --bg-card: #2c1a1a;
+      --bg-hover: #3d2626;
+      --text: #ffffff;
+      --text-secondary: #ffddd2;
+      --text-muted: #ffb4a2;
+      --border: rgba(255, 84, 0, 0.3);
+      --shadow: rgba(255, 84, 0, 0.3);
+    }
+
+    /* Ice Theme - Cool blue/white */
+    [data-theme="ice"] {
+      --accent: #00b4d8;
+      --accent-dark: #0077b6;
+      --accent-light: #90e0ef;
+      --bg: #03045e;
+      --bg-card: #0077b6;
+      --bg-hover: #0096c7;
+      --text: #ffffff;
+      --text-secondary: #caf0f8;
+      --text-muted: #90e0ef;
+      --border: rgba(144, 224, 239, 0.3);
+      --shadow: rgba(144, 224, 239, 0.2);
+    }
+
+    /* New Themes Start Here */
+    
+    /* Galaxy Theme - Deep purple with stars */
+    [data-theme="galaxy"] {
+      --accent: #9d00ff;
+      --accent-dark: #7b00cc;
+      --accent-light: #c266ff;
+      --bg: #0a0014;
+      --bg-card: #1a0033;
+      --bg-hover: #2d0066;
+      --text: #ffffff;
+      --text-secondary: #e6ccff;
+      --text-muted: #b380ff;
+      --border: rgba(157, 0, 255, 0.3);
+      --shadow: rgba(157, 0, 255, 0.2);
+    }
+
+    /* Amber Theme - Warm amber/orange */
+    [data-theme="amber"] {
+      --accent: #ff9500;
+      --accent-dark: #e68500;
+      --accent-light: #ffaa33;
+      --bg: #1a0f00;
+      --bg-card: #331f00;
+      --bg-hover: #4d2e00;
+      --text: #ffffff;
+      --text-secondary: #ffddb3;
+      --text-muted: #ffc266;
+      --border: rgba(255, 149, 0, 0.3);
+      --shadow: rgba(255, 149, 0, 0.2);
+    }
+
+    /* Emerald Theme - Rich green gemstone */
+    [data-theme="emerald"] {
+      --accent: #00cc88;
+      --accent-dark: #00aa6e;
+      --accent-light: #33dd9e;
+      --bg: #001a14;
+      --bg-card: #003328;
+      --bg-hover: #004d3c;
+      --text: #ffffff;
+      --text-secondary: #ccfff0;
+      --text-muted: #80e6c3;
+      --border: rgba(0, 204, 136, 0.3);
+      --shadow: rgba(0, 204, 136, 0.2);
+    }
+
+    /* Crimson Theme - Deep red */
+    [data-theme="crimson"] {
+      --accent: #dc143c;
+      --accent-dark: #b01030;
+      --accent-light: #e83a5c;
+      --bg: #140003;
+      --bg-card: #280007;
+      --bg-hover: #3c000a;
+      --text: #ffffff;
+      --text-secondary: #ffccd5;
+      --text-muted: #ff99aa;
+      --border: rgba(220, 20, 60, 0.3);
+      --shadow: rgba(220, 20, 60, 0.3);
+    }
+
+    /* Sapphire Theme - Deep blue */
+    [data-theme="sapphire"] {
+      --accent: #0f52ba;
+      --accent-dark: #0c4195;
+      --accent-light: #3a75d1;
+      --bg: #000814;
+      --bg-card: #001233;
+      --bg-hover: #001d57;
+      --text: #ffffff;
+      --text-secondary: #ccddff;
+      --text-muted: #99bbff;
+      --border: rgba(15, 82, 186, 0.3);
+      --shadow: rgba(15, 82, 186, 0.2);
+    }
+
+    /* Lavender Theme - Soft purple */
+    [data-theme="lavender"] {
+      --accent: #967bb6;
+      --accent-dark: #7a6295;
+      --accent-light: #b29ac8;
+      --bg: #1a1425;
+      --bg-card: #2d2340;
+      --bg-hover: #3f3157;
+      --text: #ffffff;
+      --text-secondary: #e6e0f0;
+      --text-muted: #c9bddb;
+      --border: rgba(150, 123, 182, 0.3);
+      --shadow: rgba(150, 123, 182, 0.2);
+    }
+
+    /* Copper Theme - Metallic copper */
+    [data-theme="copper"] {
+      --accent: #b87333;
+      --accent-dark: #965c29;
+      --accent-light: #d18f52;
+      --bg: #1a0f08;
+      --bg-card: #331e0f;
+      --bg-hover: #4d2d17;
+      --text: #ffffff;
+      --text-secondary: #ffddcc;
+      --text-muted: #e6b899;
+      --border: rgba(184, 115, 51, 0.3);
+      --shadow: rgba(184, 115, 51, 0.2);
+    }
+
+    /* Midnight Theme - Deep blue/black */
+    [data-theme="midnight"] {
+      --accent: #191970;
+      --accent-dark: #14145c;
+      --accent-light: #2d2d99;
+      --bg: #000011;
+      --bg-card: #000033;
+      --bg-hover: #000055;
+      --text: #ffffff;
+      --text-secondary: #ccccff;
+      --text-muted: #9999ff;
+      --border: rgba(25, 25, 112, 0.3);
+      --shadow: rgba(25, 25, 112, 0.2);
+    }
+
+    /* Coral Theme - Vibrant coral */
+    [data-theme="coral"] {
+      --accent: #ff7f50;
+      --accent-dark: #e0663a;
+      --accent-light: #ff9c7a;
+      --bg: #1a0a05;
+      --bg-card: #33140a;
+      --bg-hover: #4d1f0f;
+      --text: #ffffff;
+      --text-secondary: #ffe0d6;
+      --text-muted: #ffc0ad;
+      --border: rgba(255, 127, 80, 0.3);
+      --shadow: rgba(255, 127, 80, 0.2);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.5s ease, 
+                  color 0.5s ease, 
+                  border-color 0.5s ease,
+                  box-shadow 0.5s ease;
+    }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .background-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      filter: blur(40px);
+      opacity: 0.2;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        opacity: 0.1; 
+        transform: translate(-50%, -50%) scale(1); 
+      }
+      50% { 
+        opacity: 0.3; 
+        transform: translate(-50%, -50%) scale(1.1); 
+      }
+    }
+    
+    .brand-wrapper {
+      text-align: center;
+      user-select: none;
+      z-index: 1;
+      position: relative;
+    }
+    
+    .brand {
+      display: block;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      position: relative;
+      transition: all var(--transition), 
+                  background-color 0.5s ease,
+                  border-color 0.5s ease,
+                  box-shadow 0.5s ease;
+      font-family: 'Sofia Sans', sans-serif;
+      color: var(--text);
+      text-shadow: 0 0 20px var(--accent-light);
+      margin-bottom: 2rem;
+      padding: 0.5rem 1.5rem;
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* Theme-specific animations */
+    [data-theme="cyber"] .brand:hover {
+      animation: glitch 0.3s linear;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0) scale(1.03); }
+      20% { transform: translate(-2px, 2px) scale(1.03); }
+      40% { transform: translate(-2px, -2px) scale(1.03); }
+      60% { transform: translate(2px, 2px) scale(1.03); }
+      80% { transform: translate(2px, -2px) scale(1.03); }
+      100% { transform: translate(0) scale(1.03); }
+    }
+
+    [data-theme="neon"] .brand {
+      animation: neonPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 20px var(--accent-light); }
+      50% { box-shadow: 0 0 40px var(--accent-light), 0 0 60px var(--accent-light); }
+    }
+
+    [data-theme="matrix"] .brand {
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="matrix"] .brand::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(transparent, var(--accent-light), transparent);
+      opacity: 0.1;
+      animation: scan 3s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    [data-theme="sunset"] .brand:hover {
+      background: linear-gradient(45deg, var(--bg-card), var(--accent-dark));
+    }
+
+    [data-theme="ocean"] .brand:hover {
+      animation: wave 2s ease-in-out;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translateY(0) scale(1.03); }
+      50% { transform: translateY(-5px) scale(1.03); }
+    }
+
+    [data-theme="fire"] .brand:hover {
+      animation: flicker 0.3s ease-in-out;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    
+    .brand:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px var(--accent-light);
+    }
+    
+    .brand-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
+    .popup {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 320px;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      text-align: center;
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      z-index: 100;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+    
+    .popup.show {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    
+    .popup h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .popup a {
+      display: block;
+      margin: 0.8rem 0;
+      padding: 0.9rem 1.2rem;
+      background: var(--bg-hover);
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-weight: 400;
+      border: 1px solid var(--border);
+    }
+    
+    .popup a:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px var(--accent-light);
+    }
+    
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 99;
+      backdrop-filter: blur(5px);
+    }
+    
+    .overlay.on {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    
+    .close-btn:hover {
+      color: var(--text);
+      background: var(--bg-hover);
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-hover);
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .social-icon:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Navigation Menu */
+    #main-nav {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .nav-single-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-single-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      background: var(--bg-hover);
+    }
+
+    .nav-single-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Compact Theme Panel */
+    .theme-panel {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      backdrop-filter: blur(20px);
+      z-index: 10;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+      width: 280px;
+    }
+
+    .theme-panel.show {
+      display: flex;
+    }
+
+    .theme-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .theme-group:not(:last-child) {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.25rem;
+    }
+
+    .theme-group-header {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+      text-align: left;
+      padding-left: 0.25rem;
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem;
+    }
+
+    .theme-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.4rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .theme-option:hover {
+      background: var(--bg-hover);
+      border-color: var(--border);
+    }
+
+    .theme-option.active {
+      background: var(--bg-hover);
+      border-color: var(--accent);
+    }
+
+    .theme-color {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .theme-option.active .theme-color {
+      border-color: var(--text);
+      transform: scale(1.1);
+      box-shadow: 0 0 8px var(--accent-light);
+    }
+
+    .theme-name {
+      font-size: 0.65rem;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .theme-popular {
+      background: var(--accent);
+      color: white;
+      padding: 0.1rem 0.3rem;
+      border-radius: 8px;
+      font-size: 0.5rem;
+      margin-top: 0.1rem;
+    }
+
+    /* Theme Colors */
+    .theme-color[data-theme="dark"] { background: linear-gradient(45deg, #0a0a0a, #ff0055); }
+    .theme-color[data-theme="light"] { background: linear-gradient(45deg, #f8f9fa, #d9004c); }
+    .theme-color[data-theme="cyber"] { background: linear-gradient(45deg, #0a0a0a, #00ff88); }
+    .theme-color[data-theme="neon"] { background: linear-gradient(45deg, #0a0a0a, #ff00ff); }
+    .theme-color[data-theme="matrix"] { background: linear-gradient(45deg, #000000, #00ff00); }
+    .theme-color[data-theme="sunset"] { background: linear-gradient(45deg, #1a1a2e, #ff6b35); }
+    .theme-color[data-theme="ocean"] { background: linear-gradient(45deg, #001219, #00b4d8); }
+    .theme-color[data-theme="forest"] { background: linear-gradient(45deg, #1a1f16, #38b000); }
+    .theme-color[data-theme="royal"] { background: linear-gradient(45deg, #10002b, #9d4edd); }
+    .theme-color[data-theme="fire"] { background: linear-gradient(45deg, #1a0f0f, #ff5400); }
+    .theme-color[data-theme="ice"] { background: linear-gradient(45deg, #03045e, #00b4d8); }
+    .theme-color[data-theme="galaxy"] { background: linear-gradient(45deg, #0a0014, #9d00ff); }
+    .theme-color[data-theme="amber"] { background: linear-gradient(45deg, #1a0f00, #ff9500); }
+    .theme-color[data-theme="emerald"] { background: linear-gradient(45deg, #001a14, #00cc88); }
+    .theme-color[data-theme="crimson"] { background: linear-gradient(45deg, #140003, #dc143c); }
+    .theme-color[data-theme="sapphire"] { background: linear-gradient(45deg, #000814, #0f52ba); }
+    .theme-color[data-theme="lavender"] { background: linear-gradient(45deg, #1a1425, #967bb6); }
+    .theme-color[data-theme="copper"] { background: linear-gradient(45deg, #1a0f08, #b87333); }
+    .theme-color[data-theme="midnight"] { background: linear-gradient(45deg, #000011, #191970); }
+    .theme-color[data-theme="coral"] { background: linear-gradient(45deg, #1a0a05, #ff7f50); }
+
+    /* Theme Controls */
+    .theme-controls {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      justify-content: center;
+    }
+
+    .theme-btn {
+      background: var(--bg-hover);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 10px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--text-secondary);
+      flex: 1;
+      text-align: center;
+    }
+
+    .theme-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-card);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 101;
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .tooltip.show {
+      opacity: 1;
+    }
+
+    /* Enhanced Professional Chatbot Styles */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .chatbot-toggle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chatbot-toggle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .chatbot-toggle:hover::before {
+      opacity: 1;
+    }
+
+    .chatbot-toggle.active {
+      transform: rotate(360deg) scale(1.1);
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      width: 380px;
+      height: 550px;
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .chatbot-window.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    .chat-header {
+      padding: 1.2rem 1.5rem;
+      background: linear-gradient(135deg, var(--bg-hover), var(--bg-card));
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .chat-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text);
+    }
+
+    .chat-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .chat-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00ff88;
+      animation: pulse 2s infinite;
+      position: relative;
+    }
+
+    .status-indicator::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 50%;
+      background: #00ff88;
+      opacity: 0.4;
+      animation: pulse 2s infinite 0.5s;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background: var(--bg);
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      animation: messageSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes messageSlide {
+      from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background: linear-gradient(135deg, var(--bg-hover), var(--bg-card));
+      border-bottom-left-radius: 6px;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border-bottom-right-radius: 6px;
+      color: white;
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+
+    .message-time {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 1.2rem;
+      background: var(--bg-hover);
+      border-radius: 18px;
+      border-bottom-left-radius: 6px;
+      max-width: 85%;
+      align-self: flex-start;
+      border: 1px solid var(--border);
+    }
+
+    .typing-dots {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-secondary);
+      animation: typingBounce 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes typingBounce {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    .chat-input-container {
+      padding: 1.2rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      position: relative;
+    }
+
+    .chat-input-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-end;
+    }
+
+    .chat-input textarea {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-hover);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      resize: none;
+      min-height: 44px;
+      max-height: 120px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .chat-input textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(255, 0, 85, 0.1);
+    }
+
+    .chat-input button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .chat-input button:hover {
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px var(--shadow);
+    }
+
+    .chat-input button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .quick-reply {
+      background: var(--bg-hover);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--text);
+    }
+
+    .quick-reply:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .suggested-questions {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .suggested-questions h4 {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .suggestion-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .suggestion-chip {
+      background: var(--bg-hover);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--text-secondary);
+    }
+
+    .suggestion-chip:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      #main-nav {
+        top: 10px;
+        right: 10px;
+      }
+
+      .theme-panel {
+        top: 60px;
+        right: 10px;
+        left: 10px;
+        width: calc(100% - 20px);
+      }
+
+      .nav-single-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .chatbot-container {
+        left: 10px;
+        bottom: 10px;
+      }
+
+      .chatbot-window {
+        width: calc(100vw - 40px);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 500px;
+      }
+    }
+
+    /* Smooth preview transition */
+    [data-theme-preview] {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="background-glow"></div>
+
+  <!-- Navigation Menu -->
+  <nav id="main-nav">
+    <button class="nav-single-btn">☰ theme</button>
+    <div class="theme-panel" id="themePanel">
+      <div class="theme-group">
+        <div class="theme-group-header">Basic</div>
+        <div class="theme-grid">
+          <div class="theme-option active" data-theme="dark">
+            <div class="theme-color" data-theme="dark"></div>
+            <span class="theme-name">Dark</span>
+          </div>
+          <div class="theme-option" data-theme="light">
+            <div class="theme-color" data-theme="light"></div>
+            <span class="theme-name">Light</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="theme-group">
+        <div class="theme-group-header">Gaming</div>
+        <div class="theme-grid">
+          <div class="theme-option" data-theme="cyber">
+            <div class="theme-color" data-theme="cyber"></div>
+            <span class="theme-name">Cyber</span>
+            <span class="theme-popular">POP</span>
+          </div>
+          <div class="theme-option" data-theme="neon">
+            <div class="theme-color" data-theme="neon"></div>
+            <span class="theme-name">Neon</span>
+          </div>
+          <div class="theme-option" data-theme="matrix">
+            <div class="theme-color" data-theme="matrix"></div>
+            <span class="theme-name">Matrix</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="theme-group">
+        <div class="theme-group-header">Nature</div>
+        <div class="theme-grid">
+          <div class="theme-option" data-theme="sunset">
+            <div class="theme-color" data-theme="sunset"></div>
+            <span class="theme-name">Sunset</span>
+          </div>
+          <div class="theme-option" data-theme="ocean">
+            <div class="theme-color" data-theme="ocean"></div>
+            <span class="theme-name">Ocean</span>
+          </div>
+          <div class="theme-option" data-theme="forest">
+            <div class="theme-color" data-theme="forest"></div>
+            <span class="theme-name">Forest</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="theme-group">
+        <div class="theme-group-header">Premium</div>
+        <div class="theme-grid">
+          <div class="theme-option" data-theme="royal">
+            <div class="theme-color" data-theme="royal"></div>
+            <span class="theme-name">Royal</span>
+          </div>
+          <div class="theme-option" data-theme="fire">
+            <div class="theme-color" data-theme="fire"></div>
+            <span class="theme-name">Fire</span>
+          </div>
+          <div class="theme-option" data-theme="ice">
+            <div class="theme-color" data-theme="ice"></div>
+            <span class="theme-name">Ice</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="theme-group">
+        <div class="theme-group-header">New Themes</div>
+        <div class="theme-grid">
+          <div class="theme-option" data-theme="galaxy">
+            <div class="theme-color" data-theme="galaxy"></div>
+            <span class="theme-name">Galaxy</span>
+          </div>
+          <div class="theme-option" data-theme="amber">
+            <div class="theme-color" data-theme="amber"></div>
+            <span class="theme-name">Amber</span>
+          </div>
+          <div class="theme-option" data-theme="emerald">
+            <div class="theme-color" data-theme="emerald"></div>
+            <span class="theme-name">Emerald</span>
+          </div>
+          <div class="theme-option" data-theme="crimson">
+            <div class="theme-color" data-theme="crimson"></div>
+            <span class="theme-name">Crimson</span>
+          </div>
+          <div class="theme-option" data-theme="sapphire">
+            <div class="theme-color" data-theme="sapphire"></div>
+            <span class="theme-name">Sapphire</span>
+          </div>
+          <div class="theme-option" data-theme="lavender">
+            <div class="theme-color" data-theme="lavender"></div>
+            <span class="theme-name">Lavender</span>
+          </div>
+          <div class="theme-option" data-theme="copper">
+            <div class="theme-color" data-theme="copper"></div>
+            <span class="theme-name">Copper</span>
+          </div>
+          <div class="theme-option" data-theme="midnight">
+            <div class="theme-color" data-theme="midnight"></div>
+            <span class="theme-name">Midnight</span>
+          </div>
+          <div class="theme-option" data-theme="coral">
+            <div class="theme-color" data-theme="coral"></div>
+            <span class="theme-name">Coral</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="theme-controls">
+        <button class="theme-btn" id="autoRotate">🎨 Auto</button>
+        <button class="theme-btn" id="exportTheme">📤 Export</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Enhanced Professional Chatbot -->
+  <div class="chatbot-container">
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chat-header">
+        <h3>
+          <div class="chat-avatar">MP</div>
+          <div>
+            <div>MaleficPsycho Assistant</div>
+            <div class="chat-status">
+              <div class="status-indicator"></div>
+              <span>Online • Ready to help</span>
+            </div>
+          </div>
+        </h3>
+        <button class="close-btn" id="chatbotClose">&times;</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div>Hello! I'm your MaleficPsycho assistant. I'm here to help you learn everything about Psycho Mod's and our digital presence. How can I assist you today?</div>
+          <div class="message-time">Just now</div>
+        </div>
+        
+        <div class="suggested-questions">
+          <h4>Quick Questions</h4>
+          <div class="suggestion-chips">
+            <div class="suggestion-chip" data-question="about">About Creator</div>
+            <div class="suggestion-chip" data-question="services">Services</div>
+            <div class="suggestion-chip" data-question="projects">Projects</div>
+            <div class="suggestion-chip" data-question="contact">Contact Info</div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-container">
+        <div class="chat-input">
+          <textarea id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
+          <button id="sendMessage">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="quick-replies" id="quickReplies">
+          <div class="quick-reply" data-question="about">About Psycho Mod's</div>
+          <div class="quick-reply" data-question="website">About this website</div>
+          <div class="quick-reply" data-question="services">Services offered</div>
+          <div class="quick-reply" data-question="contact">How to contact</div>
+        </div>
+      </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbotToggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="brand-wrapper">
+    <span class="brand" id="main-brand">Psycho mod's</span>
+    <div class="brand-subtitle">Click to explore our platforms</div>
+    
+    <div class="social-icons">
+      <div class="social-icon" data-id="ig">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </div>
+      <div class="social-icon" data-id="yt">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+      </div>
+      <div class="social-icon" data-id="mail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+        </svg>
+      </div>
+      <div class="social-icon" data-id="web">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm10 12c0 .685-.07 1.354-.202 2h-3.853c.119-1.014.182-2.031.216-3h3.375c.131.646.202 1.315.202 2zm-.834 4h-3.112c-.252 1.678-.665 3.334-1.227 4.957 2.554-.792 4.525-2.696 4.879-4.957h-.54zm-5.724 6.966c-.435-.253-.89-.519-1.359-.789.411-.592.784-1.203 1.118-1.832 1.023 1.073 1.866 2.058 2.441 2.621-.739.227-1.501.4-2.2.001v-.001zm-4.442 0c-.7.399-1.462.226-2.201-.001.576-.563 1.419-1.548 2.441-2.621.334.629.707 1.24 1.118 1.832-.469.27-.924.536-1.358.789v.001zm-5.611-8.966h3.375c.034.969.097 1.986.216 3h-3.853c-.133-.646-.202-1.315-.202-2 0-.685.069-1.354.202-2h3.853c-.119-1.014-.182-2.031-.216-3h-3.375c-.131.646-.202 1.315-.202 2s.071 1.354.202 2zm4.879-6.957c.562 1.623.975 3.279 1.227 4.957h-3.112c.354-2.261 2.325-4.165 4.879-4.957h-.542c-.125.001-.252.001-.452 0v.001zm6.265 0c-2.554.792-4.525 2.696-4.879 4.957h3.112c.252-1.678.665-3.334 1.227-4.957h-.46zm-5.265-.034c-.435.253-.89.519-1.359.789-.411-.592-.784-1.203-1.118-1.832-1.023-1.073-1.866-2.058-2.441-2.621.739-.227 1.501-.4 2.2-.001.469.27.924.536 1.358.789.469-.27.924-.536 1.358-.789.7-.399 1.462-.226 2.201.001-.576.563-1.419 1.548-2.441 2.621-.334-.629-.707-1.24-1.118-1.832v.001z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="actionTooltip">Click anywhere or press ESC to close</div>
+
+  <!-- Instagram -->
+  <div class="popup" id="ig-pop">
+    <button class="close-btn">&times;</button>
+    <h3>Instagram</h3>
+    <a href="https://instagram.com/maleficpsycho" target="_blank" rel="noopener">@maleficpsycho</a>
+  </div>
+
+  <!-- YouTube -->
+  <div class="popup" id="yt-pop">
+    <button class="close-btn">&times;</button>
+    <h3>YouTube</h3>
+    <a href="https://youtube.com/@psychomods666" target="_blank" rel="noopener">@psychomods</a>
+  </div>
+
+  <!-- Gmail -->
+  <div class="popup" id="mail-pop">
+    <button class="close-btn">&times;</button>
+    <h3>Gmail</h3>
+    <a href="mailto:maleficpsychomods@gmail.com">@maleficpsychomods</a>
+  </div>
+
+  <!-- Multi-site picker -->
+  <div class="popup" id="web-pop">
+    <button class="close-btn">&times;</button>
+    <h3>Choose Site</h3>
+    <a href="https://psychoportfolio.vercel.app">Portfolio Website</a>
+    <a href="https://psychomods-minecraft.is-great.org">Minecraft Theme</a>
+    <a href="https://psychomods-90sRetro.is-great.org">90s Retro Theme</a>
+    <a href="https://psychomods.my-style.in">Matrix Theme</a>
+    <a href="https://psychomods-CyberShield.is-great.org">CyberShield Theme</a>
+    <a href="https://psychomods.unaux.com">WordPress</a>
+  </div>
+
+  <script>
+    // ... (all the JavaScript code remains exactly the same as before)
+    const mainBrand = document.getElementById('main-brand');
+    const socialIcons = document.querySelectorAll('.social-icon');
+    const overlay = document.querySelector('.overlay');
+    const closeButtons = document.querySelectorAll('.close-btn');
+    const themeOptions = document.querySelectorAll('.theme-option');
+    const tooltip = document.getElementById('actionTooltip');
+    const navButton = document.querySelector('.nav-single-btn');
+    const themePanel = document.getElementById('themePanel');
+    const autoRotateBtn = document.getElementById('autoRotate');
+    const exportBtn = document.getElementById('exportTheme');
+
+    // Enhanced Chatbot elements
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbotWindow');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const quickReplies = document.getElementById('quickReplies');
+    const suggestionChips = document.querySelectorAll('.suggestion-chip');
+
+    let themeRotationInterval;
+    let isRotating = false;
+
+    // Enhanced Chatbot knowledge base
+    const chatbotKnowledge = {
+      about: {
+        question: "About Psycho Mod's",
+        answer: "Psycho Mod's is the creative identity behind MaleficPsycho, founded by a passionate developer and content creator specializing in gaming modifications and digital experiences. With years of expertise in game development and content creation, Psycho Mod's focuses on delivering high-quality gaming modifications, entertaining content, and innovative digital solutions. The brand represents a commitment to excellence in the gaming community and beyond."
+      },
+      website: {
+        question: "About this website",
+        answer: "This is the official brand portal for MaleficPsycho, serving as the central hub for all Psycho Mod's platforms and digital presence. The website features: • 11 carefully crafted themes with seamless transitions • Professional chatbot assistance • Social media integration • Multi-domain accessibility • Responsive design for all devices • Advanced theme customization • Real-time interaction capabilities"
+      },
+      services: {
+        question: "Services offered",
+        answer: "Psycho Mod's offers a comprehensive range of digital services: • **Gaming Modifications**: Custom game modifications and enhancements • **Content Creation**: High-quality YouTube gaming content • **Digital Solutions**: Web development and design services • **Community Engagement**: Active social media presence and interaction • **Brand Development**: Creative identity and digital presence management • **Technical Support**: Game modification assistance and troubleshooting"
+      },
+      contact: {
+        question: "How to contact",
+        answer: "You can reach Psycho Mod's through multiple professional channels: • **Instagram**: @maleficpsycho for updates and community interaction • **YouTube**: @psychomods for gaming content and tutorials • **Email**: maleficpsychomods@gmail.com for business inquiries • **Multiple Domains**: Access our content through various platform-specific websites • All channels are monitored regularly for prompt responses"
+      },
+      creator: {
+        question: "Who is the creator",
+        answer: "The creator behind Psycho Mod's is an experienced developer and content creator with a passion for gaming innovation. With expertise in game modification, web development, and digital content creation, the creator has built a reputation for quality and reliability in the gaming community. The identity maintains professional standards while fostering an engaging community experience across all platforms."
+      },
+      themes: {
+        question: "About the themes",
+        answer: "Our website features 11 meticulously designed themes: • **Basic**: Dark and Light for traditional preferences • **Gaming**: Cyber, Neon, and Matrix for immersive experiences • **Nature**: Sunset, Ocean, and Forest for organic aesthetics • **Premium**: Royal, Fire, and Ice for luxury and intensity Each theme includes custom animations, color schemes, and interactive elements that transform the entire user experience while maintaining full functionality."
+      },
+      social: {
+        question: "Social media presence",
+        answer: "Psycho Mod's maintains a professional presence across multiple platforms: • **Instagram**: Regular updates, behind-the-scenes content, and community engagement • **YouTube**: Gaming content, modification tutorials, and entertainment • **Multi-domain Websites**: Specialized content across different hosting platforms Our social strategy focuses on quality content, community interaction, and consistent brand messaging across all channels."
+      },
+      domains: {
+        question: "Website domains",
+        answer: "Psycho Mod's operates through multiple strategic domains: • psychomods.infy.uk - Primary brand portal • psychomods.unaux.com - Community and updates • psychomods-minecraft.is-great.org - Gaming-specific content • psychomods.my-style.in - Creative showcase Each domain serves specific purposes while maintaining consistent brand identity and quality standards."
+      },
+      projects: {
+        question: "Current projects",
+        answer: "Psycho Mod's is currently working on several exciting initiatives: • Advanced game modification frameworks • Interactive web experiences • Community engagement programs • Content creation expansion • Technical documentation and tutorials • Cross-platform compatibility enhancements Stay tuned to our social channels for project updates and release announcements."
+      }
+    };
+
+    // Enhanced Chatbot functionality
+    function toggleChatbot() {
+      chatbotToggle.classList.toggle('active');
+      chatbotWindow.classList.toggle('show');
+      
+      if (chatbotWindow.classList.contains('show')) {
+        chatInput.focus();
+      }
+    }
+
+    function getCurrentTime() {
+      const now = new Date();
+      return now.toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: true 
+      });
+    }
+
+    function addMessage(text, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+      
+      const time = getCurrentTime();
+      messageDiv.innerHTML = `
+        <div>${text}</div>
+        <div class="message-time">${time}</div>
+      `;
+      
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.id = 'typingIndicator';
+      typingDiv.innerHTML = `
+        <div class="typing-dots">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+        <span>Assistant is typing...</span>
+      `;
+      
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function hideTypingIndicator() {
+      const typingIndicator = document.getElementById('typingIndicator');
+      if (typingIndicator) {
+        typingIndicator.remove();
+      }
+    }
+
+    function processUserMessage(message) {
+      const lowerMessage = message.toLowerCase();
+      let response = "I'm not sure I understand. You can ask me about Psycho Mod's, our services, website features, current projects, or how to contact us. What specific information are you looking for?";
+      
+      // Enhanced keyword matching with more natural language processing
+      if (lowerMessage.includes('about') || lowerMessage.includes('who') || lowerMessage.includes('what') || lowerMessage.includes('tell me')) {
+        if (lowerMessage.includes('psycho') || lowerMessage.includes('creator') || lowerMessage.includes('founder')) {
+          response = chatbotKnowledge.about.answer;
+        } else if (lowerMessage.includes('website') || lowerMessage.includes('site') || lowerMessage.includes('portal')) {
+          response = chatbotKnowledge.website.answer;
+        }
+      } else if (lowerMessage.includes('service') || lowerMessage.includes('offer') || lowerMessage.includes('provide') || lowerMessage.includes('do')) {
+        response = chatbotKnowledge.services.answer;
+      } else if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach') || lowerMessage.includes('get in touch')) {
+        response = chatbotKnowledge.contact.answer;
+      } else if (lowerMessage.includes('theme') || lowerMessage.includes('color') || lowerMessage.includes('design') || lowerMessage.includes('appearance')) {
+        response = chatbotKnowledge.themes.answer;
+      } else if (lowerMessage.includes('social') || lowerMessage.includes('instagram') || lowerMessage.includes('youtube') || lowerMessage.includes('media')) {
+        response = chatbotKnowledge.social.answer;
+      } else if (lowerMessage.includes('domain') || lowerMessage.includes('url') || lowerMessage.includes('website')) {
+        response = chatbotKnowledge.domains.answer;
+      } else if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('develop') || lowerMessage.includes('current')) {
+        response = chatbotKnowledge.projects.answer;
+      }
+      
+      // Simulate typing delay for more natural interaction
+      showTypingIndicator();
+      
+      setTimeout(() => {
+        hideTypingIndicator();
+        addMessage(response);
+        
+        // Show relevant quick replies based on context
+        updateQuickReplies(lowerMessage);
+      }, 1500 + Math.random() * 1000);
+    }
+
+    function updateQuickReplies(message) {
+      // Context-aware quick replies
+      const quickRepliesContainer = document.getElementById('quickReplies');
+      quickRepliesContainer.innerHTML = '';
+      
+      let relevantQuestions = [];
+      
+      if (message.includes('about') || message.includes('who')) {
+        relevantQuestions = ['services', 'projects', 'contact'];
+      } else if (message.includes('service')) {
+        relevantQuestions = ['projects', 'contact', 'about'];
+      } else if (message.includes('contact')) {
+        relevantQuestions = ['services', 'about', 'website'];
+      } else {
+        relevantQuestions = ['about', 'services', 'contact', 'projects'];
+      }
+      
+      relevantQuestions.forEach(question => {
+        const quickReply = document.createElement('div');
+        quickReply.className = 'quick-reply';
+        quickReply.textContent = chatbotKnowledge[question].question;
+        quickReply.dataset.question = question;
+        quickRepliesContainer.appendChild(quickReply);
+      });
+    }
+
+    function sendUserMessage() {
+      const message = chatInput.value.trim();
+      if (message) {
+        addMessage(message, true);
+        chatInput.value = '';
+        processUserMessage(message);
+        
+        // Auto-resize textarea
+        chatInput.style.height = 'auto';
+      }
+    }
+
+    // Enhanced Chatbot event listeners
+    chatbotToggle.addEventListener('click', toggleChatbot);
+    chatbotClose.addEventListener('click', toggleChatbot);
+    
+    sendMessage.addEventListener('click', sendUserMessage);
+    
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendUserMessage();
+      }
+    });
+
+    // Auto-resize textarea
+    chatInput.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+    });
+
+    quickReplies.addEventListener('click', (e) => {
+      if (e.target.classList.contains('quick-reply')) {
+        const question = e.target.dataset.question;
+        if (chatbotKnowledge[question]) {
+          addMessage(chatbotKnowledge[question].question, true);
+          processUserMessage(chatbotKnowledge[question].question);
+        }
+      }
+    });
+
+    // Suggestion chips event listeners
+    suggestionChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const question = chip.dataset.question;
+        if (chatbotKnowledge[question]) {
+          addMessage(chatbotKnowledge[question].question, true);
+          processUserMessage(chatbotKnowledge[question].question);
+        }
+      });
+    });
+
+    // Toggle theme panel
+    navButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themePanel.classList.toggle('show');
+      navButton.classList.toggle('active');
+    });
+
+    // Close theme panel when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!themePanel.contains(e.target) && !navButton.contains(e.target)) {
+        themePanel.classList.remove('show');
+        navButton.classList.remove('active');
+      }
+    });
+
+    // Theme system
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('theme', themeName);
+      
+      // Update active theme indicator
+      themeOptions.forEach(option => {
+        option.classList.toggle('active', option.dataset.theme === themeName);
+      });
+
+      // Update background glow color
+      const computedStyle = getComputedStyle(document.documentElement);
+      const accentLight = computedStyle.getPropertyValue('--accent-light').trim();
+      document.querySelector('.background-glow').style.background = 
+        `radial-gradient(circle, ${accentLight} 0%, transparent 70%)`;
+
+      // Track theme usage
+      trackThemeUsage(themeName);
+    }
+
+    // Theme selection
+    themeOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        setTheme(option.dataset.theme);
+        if (isRotating) {
+          stopThemeRotation();
+        }
+      });
+    });
+
+    // Track theme usage
+    function trackThemeUsage(themeName) {
+      const stats = JSON.parse(localStorage.getItem('themeStats') || '{}');
+      stats[themeName] = (stats[themeName] || 0) + 1;
+      localStorage.setItem('themeStats', JSON.stringify(stats));
+    }
+
+    // Auto theme rotation
+    function startThemeRotation() {
+      const themes = ['dark', 'light', 'cyber', 'neon', 'matrix', 'sunset', 'ocean', 'forest', 'royal', 'fire', 'ice', 'galaxy', 'amber', 'emerald', 'crimson', 'sapphire', 'lavender', 'copper', 'midnight', 'coral'];
+      let currentIndex = themes.indexOf(localStorage.getItem('theme') || 'dark');
+      
+      themeRotationInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % themes.length;
+        setTheme(themes[currentIndex]);
+      }, 3000); // Change every 3 seconds
+      
+      isRotating = true;
+      autoRotateBtn.textContent = '⏹️ Stop';
+    }
+
+    function stopThemeRotation() {
+      clearInterval(themeRotationInterval);
+      isRotating = false;
+      autoRotateBtn.textContent = '🎨 Auto';
+    }
+
+    autoRotateBtn.addEventListener('click', () => {
+      if (isRotating) {
+        stopThemeRotation();
+      } else {
+        startThemeRotation();
+      }
+    });
+
+    // Export theme
+    exportBtn.addEventListener('click', () => {
+      const theme = localStorage.getItem('theme');
+      const stats = JSON.parse(localStorage.getItem('themeStats') || '{}');
+      const settings = {
+        theme: theme,
+        stats: stats,
+        exportedAt: new Date().toISOString()
+      };
+      const data = JSON.stringify(settings, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'maleficpsycho-theme-settings.json';
+      a.click();
+      
+      // Show confirmation
+      const originalText = exportBtn.textContent;
+      exportBtn.textContent = '✅ Exported!';
+      setTimeout(() => {
+        exportBtn.textContent = originalText;
+      }, 2000);
+    });
+
+    // Seasonal themes
+    function setSeasonalTheme() {
+      const now = new Date();
+      const month = now.getMonth();
+      const date = now.getDate();
+      
+      // Christmas (December)
+      if (month === 11) {
+        setTheme('neon');
+      }
+      // Halloween (October)
+      else if (month === 9 && date >= 25) {
+        setTheme('fire');
+      }
+      // Spring (April)
+      else if (month === 3) {
+        setTheme('forest');
+      }
+      // Summer (July)
+      else if (month === 6) {
+        setTheme('ocean');
+      }
+    }
+
+    // Load saved theme and initialize
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    
+    // Set seasonal theme on first visit of the day
+    const lastVisit = localStorage.getItem('lastVisit');
+    const today = new Date().toDateString();
+    if (lastVisit !== today) {
+      setSeasonalTheme();
+      localStorage.setItem('lastVisit', today);
+    }
+
+    // Popup functionality (existing code)
+    mainBrand.addEventListener('click', () => {
+      const pop = document.getElementById('web-pop');
+      if (!pop) return;
+
+      mainBrand.classList.add('active');
+      overlay.classList.add('on');
+      pop.classList.add('show');
+      tooltip.classList.add('show');
+
+      overlay.onclick = () => close(pop, mainBrand);
+      pop.onclick = e => e.stopPropagation();
+    });
+
+    socialIcons.forEach(el => {
+      el.addEventListener('click', () => {
+        const id = el.dataset.id;
+        const pop = document.getElementById(id + '-pop');
+        if (!pop) return;
+
+        overlay.classList.add('on');
+        pop.classList.add('show');
+        tooltip.classList.add('show');
+
+        overlay.onclick = () => close(pop);
+        pop.onclick = e => e.stopPropagation();
+      });
+    });
+
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const pop = this.closest('.popup');
+        close(pop);
+      });
+    });
+
+    function close(pop, el = null) {
+      pop.classList.remove('show');
+      overlay.classList.remove('on');
+      tooltip.classList.remove('show');
+      if (el) el.classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const activePopup = document.querySelector('.popup.show');
+        const activeBrand = document.querySelector('.brand.active');
+        if (activePopup) {
+          close(activePopup, activeBrand);
+        }
+        // Also close theme panel and chatbot
+        themePanel.classList.remove('show');
+        navButton.classList.remove('active');
+        if (chatbotWindow.classList.contains('show')) {
+          toggleChatbot();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
